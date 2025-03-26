@@ -44,8 +44,9 @@ async def upload_image(
             )
 
         # Resize image if too large while maintaining aspect ratio
+        original_size = image.size
+        new_size = original_size
         if max(image.size) > settings.MAX_IMAGE_SIZE:
-            original_size = image.size
             ratio = settings.MAX_IMAGE_SIZE / max(image.size)
             new_size = tuple(int(dim * ratio) for dim in image.size)
             image = image.resize(new_size, Image.Resampling.LANCZOS)
@@ -80,7 +81,7 @@ async def upload_image(
         return JobResponse(
             job_id=job_id,
             status=JobStatus.PENDING,
-            message="Image uploaded successfully and resized from " + str(original_size) + " to " + str(new_size)
+            message="Image uploaded successfully" + (f" and resized from {original_size} to {new_size}" if new_size != original_size else "")
         )
 
     except HTTPException:

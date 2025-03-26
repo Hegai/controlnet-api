@@ -12,7 +12,8 @@ The ControlNet API is designed as a modular, scalable service for image generati
   - `app/services/`: Business logic and processing
   - `models/`: ML model weights and configurations --> takeover from ControlNet
   - `cldm/` and `ldm/`: Model implementations --> takeover from ControlNet
-  - `annotator/`: Image processing utilities
+  - `annotator/`: Image processing utilities  --> takeover from ControlNet
+  - `test_imgs/`: Test images  --> takeover from ControlNet
 
 ### 2. Asynchronous Processing
 - **Job-Based System**:

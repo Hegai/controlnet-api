@@ -27,13 +27,13 @@ The API will be available at `http://localhost:8000`
 
 ### 1. Upload Image
 ```bash
-curl -X POST -F "file=@test_imgs/bird.png" http://localhost:8000/api/v1/generation/upload/
+curl -X POST -F "file=@test_imgs/house.png" http://localhost:8000/api/v1/generation/upload/
 ```
 
 ### 2. Generate Images
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
-    "prompt": "a beautiful bird in nature",
+    "prompt": "house covered in snow",
     "num_samples": 1,
     "image_resolution": 512,
     "ddim_steps": 20,
